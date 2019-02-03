@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bird</title>
+</head>
+<body style="background-image: url(./timg.jpeg);background-size: cover;text-align: center">
+<audio style="margin-top: 200px" id="sound" controls="controls" autoplay="autoplay">
+</audio>
+<script>
+var soundobj=['chengdu.mp3','Faraway.mp3','flower.mp3','group.mp3','life.mp3'];
+
+var audio = document.getElementById('sound');
+var index=0;
+setInterval(()=>{
+    var myDate = new Date();
+     var myhonour=myDate.getHours();
+     if(myhonour<8||myhonour>20)
+         return false;
+     index=(index==4)?0:index+1;
+    audio.src='./music/'+soundobj[index];
+    audio.addEventListener("canplaythrough", function(){
+        audio.play();
+    });
+// audio.play();
+    // audio.paused && (audio.play())
+},10000);
+</script>
+</body>
+</html>
